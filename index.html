@@ -156,7 +156,6 @@
     <div class="interrogation-box">
       <div class="question-title">⚠️ DETECTIVE QUESTIONING IN PROGRESS</div>
 
-      <!-- Formspree Action Endpoint Fixed Below -->
       <form action="https://formspree.io/f/myegebkj" method="POST" id="quizForm">
         
         <!-- Question 1 -->
@@ -173,8 +172,8 @@
 
         <!-- Question 2 -->
         <div class="field-group">
-          <label for="tripsCount">2. How many "trips" did you take this year that your parents don't know about?</label>
-          <input type="text" id="tripsCount" name="Secret Trips Count" placeholder="e.g. 0 (liar), 3, or Lost Count" required>
+          <label for="tripsCount">2. How many "secret trips" did you take this year that your parents know NOTHING about?</label>
+          <input type="text" id="tripsCount" name="Secret Trips Count" placeholder="e.g. 0 (liar), 3, or lost count" required>
         </div>
 
         <!-- Question 3 -->
@@ -196,21 +195,51 @@
 
         <!-- Question 5 -->
         <div class="field-group">
-          <label for="partyTreat">5. What are you sponsoring for us on your birthday?</label>
-          <input type="text" id="tripsCount" name="Birthday Treat" placeholder="e.g. Pizza party, Dinner, or Bank Bankruptcy" required>
+          <label for="sleepSchedule">5. What does your sleep schedule look like?</label>
+          <select id="sleepSchedule" name="Sleep Schedule" required>
+            <option value="" disabled selected>Select sleep habit...</option>
+            <option value="Early Bird (10 PM)">Sleeping by 10 PM like an elder</option>
+            <option value="Normal (12 AM - 1 AM)">12 AM - 1 AM (Average)</option>
+            <option value="Owl (3 AM - 4 AM)">3 AM - 4 AM (Staring at ceiling / doomscrolling)</option>
+            <option value="No Sleep">Sleep is for the weak</option>
+          </select>
         </div>
 
         <!-- Question 6 -->
         <div class="field-group">
-          <label for="confession">6. Final words/confession before we release the dossier:</label>
-          <textarea id="confession" name="Final Confession" rows="2" placeholder="Type your final plea here..."></textarea>
+          <label for="embarrassingMoment">6. What was your most embarrassing moment of the past 12 months?</label>
+          <textarea id="embarrassingMoment" name="Embarrassing Moment" rows="2" placeholder="Spill the tea..." required></textarea>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="field-group">
+          <label for="chattedWithEx">7. Did you text/stalk any exes this year?</label>
+          <select id="chattedWithEx" name="Stalked Ex" required>
+            <option value="" disabled selected>Answer under oath...</option>
+            <option value="Never">Never (I have self-respect)</option>
+            <option value="Once or twice">Once or twice (Pure curiosity)</option>
+            <option value="Regularly">Regularly (Down bad)</option>
+            <option value="I am the ex">I am the one being stalked</option>
+          </select>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="field-group">
+          <label for="bankBalance">8. Current financial situation in 3 words?</label>
+          <input type="text" id="bankBalance" name="Financial Situation" placeholder="e.g. Broke but happy / Rich in spirit" required>
+        </div>
+
+        <!-- Question 9 -->
+        <div class="field-group">
+          <label for="partyTreat">9. What are you sponsoring for us on your birthday?</label>
+          <input type="text" id="partyTreat" name="Birthday Treat" placeholder="e.g. Pizza party, Dinner, or Bank Bankruptcy" required>
         </div>
 
         <button type="submit" class="submit-btn">SUBMIT CONFESSION 🚨</button>
       </form>
 
       <div id="successMessage">
-        ✅ CONFESSION RECORDED! Redirecting dossier...
+        ✅ CONFESSION RECORDED! Dossier submitted to headquarters.
       </div>
     </div>
   </div>
@@ -233,10 +262,10 @@
           form.style.display = 'none';
           successMsg.style.display = 'block';
         } else {
-          alert("Oops! There was an issue submitting. Make sure your Formspree endpoint is active.");
+          alert("Oops! There was an issue submitting.");
         }
       }).catch(error => {
-        alert("Submission failed. Check your internet connection.");
+        alert("Submission failed. Check your connection.");
       });
     });
   </script>
