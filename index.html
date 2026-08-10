@@ -166,41 +166,6 @@
       background-color: #ff5555;
       box-shadow: 0 0 15px rgba(255, 51, 51, 0.4);
     }
-
-    .verdict-box {
-      display: none;
-      background: #111;
-      border: 1px solid var(--accent-yellow);
-      padding: 20px;
-      border-radius: 5px;
-      text-align: center;
-      animation: fadeIn 0.5s ease;
-    }
-
-    .verdict-title {
-      color: var(--accent-yellow);
-      font-size: 1.2rem;
-      margin-bottom: 10px;
-    }
-
-    .verdict-text {
-      font-size: 0.9rem;
-      line-height: 1.5;
-      margin-bottom: 15px;
-      color: #fff;
-    }
-
-    .bday-wish {
-      color: var(--accent-red);
-      font-size: 1.1rem;
-      font-weight: bold;
-      margin-top: 15px;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
   </style>
 </head>
 <body>
@@ -223,58 +188,32 @@
     <div class="interrogation-box" id="interrogationForm">
       <div class="question-title">⚠️ DETECTIVE QUESTIONING IN PROGRESS</div>
 
-      <form id="quizForm" onsubmit="submitInterrogation(event)">
+      <!-- Replace YOUR_FORM_ID with your Formspree ID -->
+      <form action="https://formspree.io/f/https://formspree.io/f/myegebkj" method="POST" id="quizForm">
         <div>
           <label for="gfStatus">1. Do you have a girlfriend right now?</label>
-          <select id="gfStatus" required>
+          <select id="gfStatus" name="Girlfriend Status" required>
             <option value="" disabled selected>Select status...</option>
-            <option value="Single & Living Stress-Free 🧘‍♂️">No (Single & Free)</option>
-            <option value="Officially Taken 🔒">Yes (In a Relationship)</option>
-            <option value="Top Secret / It's Complicated 🤫">It's Classified</option>
+            <option value="Single & Living Stress-Free">No (Single & Free)</option>
+            <option value="Officially Taken">Yes (In a Relationship)</option>
+            <option value="Top Secret / It's Complicated">It's Classified</option>
           </select>
         </div>
 
         <div>
           <label for="tripsCount">2. How many trips did you do this year?</label>
-          <input type="text" id="tripsCount" placeholder="e.g. 0, 5, or 'Lost count'" required>
+          <input type="text" id="tripsCount" name="Trips Count" placeholder="e.g. 0, 5, or 'Lost count'" required>
         </div>
 
         <div>
           <label for="futurePlans">3. What are your future plans for the upcoming year?</label>
-          <textarea id="futurePlans" rows="3" placeholder="e.g. Get rich, travel, party..." required></textarea>
+          <textarea id="futurePlans" name="Future Plans" rows="3" placeholder="e.g. Get rich, travel, party..." required></textarea>
         </div>
 
         <button type="submit" class="btn-submit">Submit Confession</button>
       </form>
     </div>
-
-    <div class="verdict-box" id="verdictBox">
-      <div class="verdict-title">📜 CASE VERDICT & ANALYSIS</div>
-      <div class="verdict-text" id="verdictDetails"></div>
-      <hr style="border-color: #333; margin: 15px 0;">
-      <div class="bday-wish">🎉 HAPPY BIRTHDAY COUSIN! 🎂<br><span style="font-size:0.85rem; color:#aaa; font-weight:normal;">May your year be filled with success, trips, and endless wins!</span></div>
-    </div>
   </div>
-
-  <script>
-    function submitInterrogation(event) {
-      event.preventDefault();
-
-      const gf = document.getElementById('gfStatus').value;
-      const trips = document.getElementById('tripsCount').value;
-      const plans = document.getElementById('futurePlans').value;
-
-      const details = `
-        <p><strong>Relationship Status:</strong> ${gf}</p>
-        <p><strong>Trips Logged:</strong> ${trips}</p>
-        <p><strong>Future Objectives:</strong> "${plans}"</p>
-      `;
-
-      document.getElementById('interrogationForm').style.display = 'none';
-      document.getElementById('verdictDetails').innerHTML = details;
-      document.getElementById('verdictBox').style.display = 'block';
-    }
-  </script>
 
 </body>
 </html>
